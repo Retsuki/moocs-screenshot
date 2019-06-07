@@ -61,8 +61,8 @@ options = Options()
 # capabilities['acceptInsecureCerts'] = True
 
 
-x = 280
-y = 313
+x = 567
+y = 200
 
 try:
 #     driver = webdriver.Chrome(executable_path=chromedriver_path,
@@ -95,12 +95,24 @@ try:
     time.sleep(2)
     driver.find_element_by_xpath(x5).click()
     time.sleep(5)
-    pyautogui.moveTo(x, y)
+    pg.moveTo(x, y)
     pg.vscroll(-10)
     time.sleep(1)
+    """人によっては違うかもしれないので、カーソルの位置の設定
+    print(pg.position())
+    time.sleep(1)
+    print(pg.position())
+    time.sleep(1)
+    print(pg.position())
+    time.sleep(1)
+    print(pg.position())
+    time.sleep(1)
+    print(pg.position())
+    time.sleep(1)
+    """
     for i in range(slide_count):
         time.sleep(1)
-        pg.screenshot('{0}/{1}{2}.png'.format(make_dir, make_dir, i), region=(0, 50, 1200, 1000)) #左上のx座標=0, 左上のy座標=50 の位置から幅300, 高さ=400
+        pg.screenshot('{0}/{1}.png'.format(make_dir, i), region=(0, 50, 1200, 1000)) #左上のx座標=0, 左上のy座標=50 の位置から幅300, 高さ=400
         pg.click(x, y)
     time.sleep(5)
     driver.quit()
